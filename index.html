@@ -38,6 +38,11 @@
     .closing p{margin:0;font-size:1.07rem;color:var(--muted)}
     .more{display:inline-flex;align-items:center;gap:10px;border:1px solid #535760;border-radius:100px;padding:13px 20px;text-decoration:none;font-size:.92rem;transition:border-color .2s,background .2s}
     .more:hover,.more:focus-visible{border-color:var(--accent);background:#22171a}
+    .contact{margin:52px 0 0;padding:30px;display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--panel);border:1px solid #272a31;border-radius:22px}
+    .contact h3{margin:0 0 8px;font-size:1.45rem;font-weight:550;letter-spacing:-.025em}
+    .contact p{margin:0;color:var(--muted);font-size:.98rem;line-height:1.55}
+    .contact-button{background:transparent;color:var(--text);font:inherit;cursor:pointer;white-space:nowrap}
+    .contact-button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
     footer{max-width:var(--max);margin:0 auto;padding:0 24px 35px;color:#7c808d;font-size:.83rem;text-align:center}
     @media(max-width:660px){
       .shell{padding:18px 14px 40px}
@@ -50,6 +55,7 @@
       .tiles{grid-template-columns:1fr}
       .tile{min-height:unset}
       .closing{flex-direction:column;align-items:flex-start}
+      .contact{flex-direction:column;align-items:flex-start;padding:26px 22px}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.more{transition:none}}
   </style>
@@ -76,6 +82,13 @@
           <article class="tile"><span class="tile-index">03 / TOGETHER</span><h3>Create</h3><p>Turn shared ideas and complementary abilities into something real.</p></article>
           <article class="tile"><span class="tile-index">04 / LIFE</span><h3>Experience</h3><p>Share moments, learn together and make meaningful memories.</p></article>
         </div>
+        <section class="contact" aria-labelledby="contact-title">
+          <div>
+            <h3 id="contact-title">Let's connect.</h3>
+            <p>Questions, ideas or possibilities to explore? Get in touch.</p>
+          </div>
+          <button class="more contact-button" id="contact-email" type="button" aria-label="Open your email app to contact D2CE4I">Get in touch <span aria-hidden="true">↗</span></button>
+        </section>
         <div class="closing">
           <p>Something meaningful is taking shape.<br><strong style="color:var(--text);font-weight:500">D2CE4I is coming soon.</strong></p>
           <a class="more" href="#brand" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></a>
@@ -84,6 +97,16 @@
     </div>
   </main>
   <footer>© <span id="year">2026</span> D2CE4I · Concept preview · No registrations or payments are collected on this site.</footer>
-  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Assemble the contact address only upon human interaction.
+    // This deters basic HTML scrapers; it is not a guarantee against advanced bots.
+    document.getElementById('contact-email').addEventListener('click', function () {
+      const mailbox = ['m', 'd'].join('');
+      const domain = ['minds', 'for', 'motion'].join('');
+      const address = mailbox + '@' + domain + '.' + ['c', 'o', 'm'].join('');
+      window.location.href = 'mailto:' + address + '?subject=' + encodeURIComponent('D2CE4I inquiry');
+    });
+  </script>
 </body>
 </html>
