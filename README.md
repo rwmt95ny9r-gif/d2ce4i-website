@@ -5,8 +5,13 @@ Discover · Connect · Create · Experience
 
 A static, responsive landing page, recreated in semantic HTML and CSS from the D2CE4I visual concept. No backend, tracking, analytics, cookies, signup forms or payment collection.
 
+## Version
+
+**Current baseline: v1.1 — Initial Launch (15 November 2026).** See [VERSION.md](VERSION.md) for the documented features, domain/HTTPS setup and future scope. This records the launch baseline; publishing remains manual.
+
 ## Files
 - `index.html` — entire public landing page
+- `VERSION.md` — v1.1 baseline / release notes
 - `.github/workflows/pages.yml` — manually triggered GitHub Pages deployment
 
 ## Publish with GitHub Pages
@@ -14,7 +19,7 @@ A static, responsive landing page, recreated in semantic HTML and CSS from the D
 2. Set **Build and deployment → Source: GitHub Actions**.
 3. Go to **Actions → Publish D2CE4I Website → Run workflow** on `main`.
 4. After successful deployment, verify the public page.
-5. Optionally configure the custom domain `d2ce4i.com` under GitHub Pages and required DNS records at IONOS, then enable HTTPS.
+5. Custom domain `d2ce4i.com` is configured and the GitHub Pages DNS check and Enforce HTTPS were reported successful on 15 November 2026.
 
 The workflow is manual by design. It does **not** deploy on every push.
 
