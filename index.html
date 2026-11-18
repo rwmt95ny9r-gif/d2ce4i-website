@@ -26,6 +26,9 @@
     html{scroll-behavior:smooth}
     body{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;-webkit-font-smoothing:antialiased}
     a{color:inherit}
+    .skip-link{position:absolute;left:16px;top:-100px;z-index:30;padding:12px 18px;background:var(--panel);color:var(--text);border:2px solid var(--accent);border-radius:14px;text-decoration:none}
+    .skip-link:focus{top:12px}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
     .shell{max-width:var(--max);margin:auto;padding:clamp(22px,3vw,40px) 22px 56px}
     .site-header{display:flex;justify-content:flex-end;align-items:center;min-height:42px;margin-bottom:18px}
     .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:9px 15px;border:1px solid var(--outline);background:var(--panel);border-radius:100px;color:var(--text);font:inherit;font-size:.86rem;cursor:pointer;transition:background .2s,border-color .2s}
@@ -44,6 +47,9 @@
     .rule{width:100%;height:2px;background:var(--line);margin:clamp(30px,4vw,49px) 0 clamp(32px,4.5vw,54px);border:0}
     .statement{font-size:clamp(2rem,4.3vw,3.5rem);font-weight:550;line-height:1.17;letter-spacing:-.03em;margin:0}
     .substatement{margin:clamp(26px,4vw,46px) 0 0;color:var(--muted);font-size:clamp(1.2rem,3vw,2.25rem);font-weight:380;line-height:1.4}
+    .hero-link{display:inline-flex;align-items:center;gap:13px;margin-top:clamp(30px,4vw,46px);padding:12px 18px;color:var(--text);font-size:.92rem;text-decoration:none;border:1px solid var(--outline);border-radius:100px;transition:background .2s,border-color .2s}
+    .hero-link svg{width:17px;height:17px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .hero-link:hover{background:var(--hover);border-color:var(--accent)}
     .below{max-width:930px;margin:0 auto;padding:clamp(80px,12vw,140px) 2px 30px}
     .eyebrow{color:var(--accent);font-size:.75rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
     h2{font-size:clamp(2rem,4.1vw,3.6rem);line-height:1.1;letter-spacing:-.045em;font-weight:550;max-width:760px;margin:18px 0 22px}
@@ -63,10 +69,16 @@
     .contact-button{background:transparent;color:var(--text);font:inherit;cursor:pointer;white-space:nowrap}
     .contact-button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
     footer{max-width:var(--max);margin:0 auto;padding:0 24px 35px;color:var(--footer);font-size:.83rem;text-align:center}
+    .back-to-top{position:fixed;z-index:20;right:max(18px,env(safe-area-inset-right));bottom:calc(22px + env(safe-area-inset-bottom));width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--outline);border-radius:50%;background:var(--panel);color:var(--accent);box-shadow:0 6px 22px rgba(0,0,0,.13);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+    .back-to-top[hidden]{display:none}
+    .back-to-top:hover{background:var(--hover);border-color:var(--accent);transform:translateY(-2px)}
+    .back-to-top:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+    .back-to-top svg{width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
     @media(max-width:660px){
       .shell{padding:14px 14px 40px}
       .site-header{margin-bottom:14px}
       .hero{min-height:65vh;border-radius:28px;padding:58px 18px}
+      .back-to-top{right:max(15px,env(safe-area-inset-right));bottom:calc(16px + env(safe-area-inset-bottom));width:48px;height:48px}
       .wordmark{font-size:clamp(3.45rem,14vw,5.2rem)}
       .dimensions{font-size:clamp(.78rem,2.65vw,1rem);letter-spacing:.005em}
       .rule{margin:30px 0 37px}
@@ -77,10 +89,11 @@
       .closing{flex-direction:column;align-items:flex-start}
       .contact{flex-direction:column;align-items:flex-start;padding:26px 22px}
     }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.more,.theme-toggle{transition:none}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.more,.theme-toggle,.hero-link,.back-to-top{transition:none}}
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#vision">Skip to content</a>
   <main>
     <div class="shell">
       <header class="site-header">
@@ -99,6 +112,7 @@
           <hr class="rule">
           <p class="statement">From Inspiration to Impact.</p>
           <p class="substatement">Human potential. Shared possibilities.</p>
+          <a class="hero-link" href="#vision">Explore the vision <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg></a>
         </div>
       </section>
       <section class="below" id="vision" aria-labelledby="vision-title">
@@ -120,14 +134,36 @@
         </section>
         <div class="closing">
           <p>Something meaningful is taking shape.<br><strong style="color:var(--text);font-weight:500">D2CE4I is coming soon.</strong></p>
-          <a class="more" href="#brand" aria-label="Back to top">Back to top <span aria-hidden="true">↑</span></a>
         </div>
       </section>
     </div>
   </main>
   <footer>© <span id="year">2026</span> D2CE4I · Concept preview · No registrations or payments are collected on this site.</footer>
+  <button class="back-to-top" type="button" id="back-to-top" aria-label="Back to top" title="Back to top" hidden>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7"/></svg>
+  </button>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const topButton = document.getElementById('back-to-top');
+      const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      let scheduled = false;
+      function refreshTopButton() {
+        topButton.hidden = window.scrollY < Math.max(400, window.innerHeight * 0.6);
+        scheduled = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!scheduled) {
+          scheduled = true;
+          window.requestAnimationFrame(refreshTopButton);
+        }
+      }, { passive: true });
+      window.addEventListener('resize', refreshTopButton);
+      topButton.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: reducedMotion && reducedMotion.matches ? 'auto' : 'smooth' });
+      });
+      refreshTopButton();
+    }());
     (function () {
       const root = document.documentElement;
       const toggle = document.getElementById('theme-toggle');
