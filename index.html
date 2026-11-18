@@ -31,7 +31,11 @@
     .theme-toggle{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:9px 15px;border:1px solid var(--outline);background:var(--panel);border-radius:100px;color:var(--text);font:inherit;font-size:.86rem;cursor:pointer;transition:background .2s,border-color .2s}
     .theme-toggle:hover{background:var(--hover);border-color:var(--accent)}
     .theme-toggle:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-    .theme-symbol{font-size:1.05rem;line-height:1}
+    .theme-symbol{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;color:var(--accent);flex-shrink:0}
+    .theme-symbol svg{display:block;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+    .theme-symbol .icon-sun{display:none}
+    :root[data-theme="dark"] .theme-symbol .icon-sun{display:block}
+    :root[data-theme="dark"] .theme-symbol .icon-moon{display:none}
     .hero{min-height:min(75vh,640px);background:var(--panel);border-radius:clamp(25px,4vw,46px);display:flex;align-items:center;justify-content:center;padding:clamp(42px,7vw,92px) clamp(24px,5vw,72px);text-align:center}
     .hero-inner{width:100%}
     .wordmark{margin:0;font-size:clamp(4.4rem,11vw,7.2rem);line-height:1.04;letter-spacing:-.075em;font-weight:560;white-space:nowrap}
@@ -81,7 +85,10 @@
     <div class="shell">
       <header class="site-header">
         <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
-          <span class="theme-symbol" id="theme-symbol" aria-hidden="true">◐</span>
+          <span class="theme-symbol" aria-hidden="true">
+            <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.6 15.1A8.5 8.5 0 0 1 8.9 3.4 8.5 8.5 0 1 0 20.6 15.1Z"/></svg>
+          </span>
           <span id="theme-label">Change theme</span>
         </button>
       </header>
@@ -125,12 +132,10 @@
       const root = document.documentElement;
       const toggle = document.getElementById('theme-toggle');
       const label = document.getElementById('theme-label');
-      const symbol = document.getElementById('theme-symbol');
       const metaTheme = document.querySelector('meta[name="theme-color"]');
       function syncTheme() {
         const dark = root.dataset.theme === 'dark';
         label.textContent = dark ? 'Light mode' : 'Dark mode';
-        symbol.textContent = dark ? '☀' : '☾';
         toggle.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
         if (metaTheme) metaTheme.setAttribute('content', dark ? '#20262A' : '#F7F9F8');
       }
