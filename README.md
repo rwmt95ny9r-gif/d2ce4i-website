@@ -7,11 +7,13 @@ A static, responsive landing page, recreated in semantic HTML and CSS from the D
 
 ## Version
 
-**Current baseline: v1.1 — Initial Launch (15 November 2026).** See [VERSION.md](VERSION.md) for the documented features, domain/HTTPS setup and future scope. This records the launch baseline; publishing remains manual.
+**Current color design: v1.2 — Deep Teal (light & dark).** The approved palette and interaction rules are in [BRAND_STANDARD.md](BRAND_STANDARD.md). See [RELEASE_v1.2.md](RELEASE_v1.2.md) for implementation details. The original launch v1.1 is retained in [VERSION.md](VERSION.md). Publishing remains manual.
 
 ## Files
 - `index.html` — entire public landing page
-- `VERSION.md` — v1.1 baseline / release notes
+- `VERSION.md` — historical v1.1 launch baseline
+- `RELEASE_v1.2.md` — v1.2 design and implementation
+- `BRAND_STANDARD.md` — agreed D2CE4I color and theme standard
 - `.github/workflows/pages.yml` — manually triggered GitHub Pages deployment
 
 ## Publish with GitHub Pages
