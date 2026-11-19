@@ -69,6 +69,9 @@
     .contact-button{background:transparent;color:var(--text);font:inherit;cursor:pointer;white-space:nowrap}
     .contact-button:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
     footer{max-width:var(--max);margin:0 auto;padding:0 24px 35px;color:var(--footer);font-size:.83rem;text-align:center}
+    footer a{color:inherit;text-decoration:underline;text-decoration-color:var(--outline);text-underline-offset:3px}
+    footer a:hover{color:var(--accent);text-decoration-color:var(--accent)}
+    .footer-separator{margin:0 .35rem}
     .back-to-top{position:fixed;z-index:20;right:max(18px,env(safe-area-inset-right));bottom:calc(22px + env(safe-area-inset-bottom));width:52px;height:52px;display:flex;align-items:center;justify-content:center;padding:0;border:1px solid var(--outline);border-radius:50%;background:var(--panel);color:var(--accent);box-shadow:0 6px 22px rgba(0,0,0,.13);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
     .back-to-top[hidden]{display:none}
     .back-to-top:hover{background:var(--hover);border-color:var(--accent);transform:translateY(-2px)}
@@ -138,7 +141,7 @@
       </section>
     </div>
   </main>
-  <footer>© <span id="year">2026</span> D2CE4I · Concept preview · No registrations or payments are collected on this site.</footer>
+  <footer>© <span id="year">2026</span> D2CE4I · Concept preview · No registrations or payments are collected on this site. <span class="footer-separator" aria-hidden="true">·</span> <a href="imprint.html">Imprint</a></footer>
   <button class="back-to-top" type="button" id="back-to-top" aria-label="Back to top" title="Back to top" hidden>
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-7 7 7-7 7 7"/></svg>
   </button>
