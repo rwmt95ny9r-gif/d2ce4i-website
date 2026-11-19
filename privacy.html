@@ -39,9 +39,12 @@
     address{font-style:normal;line-height:1.85}
     .email{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
     .legal-note{color:var(--muted);font-size:.92rem}
-    footer{border-top:1px solid var(--line);margin-top:58px;padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:.83rem}
-    footer a{color:inherit;text-decoration:none}
-    footer a:hover{color:var(--accent)}
+    .site-footer{max-width:1160px;width:100%;margin:0 auto;border-top:1px solid var(--line);padding:24px 24px 36px;color:var(--muted);font-size:.83rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer-links{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+    .site-footer a{color:inherit;text-decoration:none;text-underline-offset:3px}
+    .site-footer a:hover{color:var(--accent);text-decoration:underline}
+    .site-footer a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+    @media(max-width:660px){.site-footer{justify-content:center;text-align:center;padding:22px 18px 32px}.footer-links{justify-content:center}}
     @media(max-width:550px){.shell{width:min(100% - 28px,920px)}.nav{margin-bottom:55px}.panel{border-radius:20px;padding:25px 22px}}
   </style>
 </head>
@@ -98,11 +101,18 @@
         <p>We do not use automated decision-making or profiling within the meaning of Art. 22 GDPR on this concept website. We may update this notice if the website, the services we use or legal requirements change.</p>
       </section>
     </div>
-    <footer>
-      <span>© <span id="year">2026</span> D2CE4I</span>
-      <span><a href="imprint.html">Imprint</a> · <a href="index.html">Back to D2CE4I</a></span>
-    </footer>
+    
   </main>
+  <footer class="site-footer">
+    <span>© <span id="year">2026</span> D2CE4I · Concept preview</span>
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="index.html">Home</a>
+      <span aria-hidden="true">·</span>
+      <a href="imprint.html">Imprint</a>
+      <span aria-hidden="true">·</span>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
