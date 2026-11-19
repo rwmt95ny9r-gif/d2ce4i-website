@@ -69,14 +69,29 @@
       </section>
       <section aria-labelledby="contact">
         <h2 id="contact">Contact</h2>
-        <p>Email: <a class="email" href="mailto:hello@d2ce4i.com">hello@d2ce4i.com</a></p>
+        <p>Email: <span id="legal-email"><span>hello</span> [at] <span>d2ce4i</span> [dot] com</span></p>
+        <noscript><p class="legal-note">To email us, replace [at] with @ and [dot] with a period.</p></noscript>
       </section>
     </div>
     <footer>
       <span>© <span id="year">2026</span> D2CE4I</span>
-      <a href="index.html">Back to D2CE4I</a>
+      <span><a href="privacy.html">Privacy Policy</a> · <a href="index.html">Back to D2CE4I</a></span>
     </footer>
   </main>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function () {
+      const container = document.getElementById('legal-email');
+      const local = ['he', 'llo'].join('');
+      const host = ['d2', 'ce4', 'i'].join('') + '.' + ['co', 'm'].join('');
+      const value = local + '@' + host;
+      const link = document.createElement('a');
+      link.className = 'email';
+      link.href = 'mailto:' + value;
+      link.textContent = value;
+      link.setAttribute('aria-label', 'Email D2CE4I');
+      container.replaceChildren(link);
+    }());
+  </script>
 </body>
 </html>
